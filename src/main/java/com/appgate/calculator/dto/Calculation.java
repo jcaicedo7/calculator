@@ -6,7 +6,8 @@ public class Calculation implements Serializable {
     private static final long serialVersionUID = 1L;
 	private String values;
 	private String operation;
-	private String result;
+	private Double result;
+	
 	public String getValues() {
 		return values;
 	}
@@ -19,10 +20,10 @@ public class Calculation implements Serializable {
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
-	public String getResult() {
+	public Double getResult() {
 		return result;
 	}
-	public void setResult(String result) {
+	public void setResult(Double result) {
 		this.result = result;
-	}	
+	}
 }
