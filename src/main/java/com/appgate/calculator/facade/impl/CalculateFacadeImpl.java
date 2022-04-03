@@ -103,7 +103,7 @@ public class CalculateFacadeImpl implements ICalculateFacade{
 		return response;		
 	}
 
-	private Calculation processCalculate(String values, String nameOperation) throws CalculateException{
+	public Calculation processCalculate(String values, String nameOperation) throws CalculateException{
 		Calculation calculation = new Calculation();
     	try {
     		DataNumeric dataNumeric = new DataNumeric(values);

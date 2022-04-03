@@ -5,6 +5,13 @@ import java.util.List;
 import com.appgate.calculator.core.IOperation;
 import com.appgate.calculator.exception.CalculateException;
 
+/**
+ * Clase implementan el calculo para realizar la operacion matematica de division   
+ * 
+ * @author Jose Luis Caicedo Gonzalez. luix17@yahoo.com
+ *
+ */
+
 public class Division implements IOperation {
 	
 	public Double calculate(List<Double> list) throws CalculateException{

@@ -4,6 +4,13 @@ import java.util.List;
 
 import com.appgate.calculator.core.IOperation;
 
+/**
+ * Clase implementan el calculo para realizaar la operacion matematica de resta o sustraccion
+ * 
+ * @author Jose Luis Caicedo Gonzalez. luix17@yahoo.com
+ *
+ */
+
 public class Sustraction implements IOperation {
 	
 	public Double calculate(List<Double> list) {

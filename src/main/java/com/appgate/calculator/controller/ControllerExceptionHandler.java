@@ -14,6 +14,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.appgate.calculator.dto.ErrorMessage;
 
+/**
+* Clase para capturar las exepciones lanzadas al aplicar la validación de entradas de valores 
+* y emitirlas al cliente
+* 
+* @author Jose Luis Caicedo Gonzalez. luix17@yahoo.com
+* 
+*/
+
+
 @ControllerAdvice
 public class ControllerExceptionHandler {
 	

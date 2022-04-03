@@ -10,7 +10,11 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
 import com.appgate.calculator.service.ICalculateService;
-
+/**
+ * Clase encargada de realizar operaciones sobre el almacenamiento de redis
+ * @author Jose Luis Caicedo Gonzalez. luix17@yahoo.com
+ *
+ */
 @Service
 public class CalculateServiceImpl implements ICalculateService{
 	@Autowired

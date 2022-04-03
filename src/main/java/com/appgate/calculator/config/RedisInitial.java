@@ -10,6 +10,12 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+/**
+* Iniicializar conexion a redis 
+* @author Jose Luis Caicedo Gonzalez. luix17@yahoo.com
+*/
+
+
 @EnableRedisRepositories
 @ComponentScan
 @Configuration

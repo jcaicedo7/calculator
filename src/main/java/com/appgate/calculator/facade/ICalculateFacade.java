@@ -10,4 +10,5 @@ public interface ICalculateFacade {
 	public Calculation calculate(String id,CalculateRequest request) throws CalculateException;
 	public String clear(String id) throws CalculateException;
 	public String remove(String id,Double value) throws CalculateException;
+	public Calculation processCalculate(String values, String nameOperation) throws CalculateException;	
 }

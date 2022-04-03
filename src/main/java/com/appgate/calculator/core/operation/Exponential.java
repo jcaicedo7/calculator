@@ -3,6 +3,13 @@ package com.appgate.calculator.core.operation;
 import java.util.List;
 import com.appgate.calculator.core.IOperation;
 
+/**
+ * Clase implementan el calculo para realizar la operacion matematica de aplicar potencia 
+ * 
+ * @author Jose Luis Caicedo Gonzalez. luix17@yahoo.com
+ *
+ */
+
 public class Exponential implements IOperation {
 	
 	public Double calculate(List<Double> list){

@@ -5,7 +5,14 @@ import java.util.List;
 
 import com.appgate.calculator.exception.CalculateException;
 
-
+/**
+ * Clase encapsula los valores utilizados para realizar el calculo
+ * y realizar la transformacion a tipos numericos para
+ * disponerlos a las clase de operacion matematica 
+ *  
+ * @author Jose Luis Caicedo Gonzalez. luix17@yahoo.com
+ *
+ */
 public class DataNumeric {
 	public final static String SEPARATOR = ",";
 

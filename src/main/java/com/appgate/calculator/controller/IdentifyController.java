@@ -14,9 +14,15 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.appgate.calculator.facade.ICalculateFacade;
 import com.appgate.calculator.facade.IIdentifyFacade;
 
+/**
+* Clase controlador para exponer operaciones de generacion de identificador para el usuario
+* y eliminar el identificador 
+* 
+* @author Jose Luis Caicedo Gonzalez. luix17@yahoo.com
+* 
+*/
 @RestController
 @RequestMapping("/identify")
 @Validated
@@ -24,6 +30,10 @@ public class IdentifyController {
     @Autowired
     IIdentifyFacade serviceFacade;
     
+    /**
+     * Operacion para generar el identificador para el usuario y almacenarlo
+     * @return retorna el identificador
+     */
     @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> create(){
 	    String id = serviceFacade.create();
@@ -31,6 +41,11 @@ public class IdentifyController {
 		return response;
 	}
     
+    /**
+     * Operacion permite eliminar el numero identificador del almacenamiento 
+     * @param id es Identificador de registro 
+     * @return
+     */
     @DeleteMapping("/delete")
     public ResponseEntity<?> delete(@RequestHeader("id") String id) {    	
 		ResponseEntity<?> response = null;
