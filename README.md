@@ -6,31 +6,44 @@ Esta API REST desarrollada con Spring Boot y Redis como almacenamiento.
 
 ## Requisitos
 Instalado y configurado las siguientes:
+
 -JDK 11
+
 -Maven versión 3.8.1
+
 -Git 2.31.1
+
 -Docker 20.10.13
 
+
 ## Empaquetar y despliegue
+
+A continuacion se presenta el paso a paso con los comandos.
+
 1. Descargar imagen redis:
+
 docker pull redis
 
 2. Desplegar redis:
+
 docker run -d --name redis -p 6379:6379 redis
 En caso de tener el puerto ocupado cambiarlo
 
 3. Clonar el proyecto calculator :
+
 git clone https://github.com/jcaicedo7/calculator.git
-En caso de haber cambiado el puerto de redis modificar colocando el puerto e IP (si es necesario) en el siguiente el archivo
+
+NOTA: En caso de haber cambiado el puerto de redis modificar colocando el puerto e IP (si es necesario) en el siguiente el archivo
 \calculator\src\main\resources\ application.properties
 
-4. Instalar 
+4. Instalar:
+
 mvn install
 
 5. Desplegar
 mvn spring-boot:run
 
-## Ejecución de Pruebas
+## Recursos Dispuestos
 
 | Metodo            | Recurso           | Descripcion                                                                                 |
 |:------------------|:------------------|:----------------------------------------------------------------------------------------------|
@@ -42,7 +55,11 @@ mvn spring-boot:run
 | `GET`				| `/calculator/query`		| Consulta los valores agregados al momento	|
 | `DELETE`			| `/identify/delete`		| Elimina el identificador	|
 
-Ejemplo Desarrollo de Pruebas Básicas
+## Desarrollo de Pruebas Básicas
+
+A continuación se presentan 5 casos de pruebas utilizando los recursos.
+
+CASO PRUEBA 1:
 
 1. Obtener identificador
 Método: POST
@@ -98,17 +115,19 @@ Division
 
 Exponential
 
-En el parámetro “operation” debe ingresar exactamente el mismo nombre.
+En el parámetro “operation” debe ingresar los anteriores nombres de forma exacta.
 Con los números agregados, están disponibles para cualquier operación.
 
-CASO 2
+CASO PRUEBA 2
+
 1. Consultar números agregados.
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
 Método: GET
 Ejecutar: http://localhost:8080/calculator/query
 Resultado: 2.0,3.0
 
-CASO 3
+CASO PRUEBA 3
+
 1. Eliminar un número
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
 Método: DELETE
@@ -119,14 +138,16 @@ Cuerpo (formato json):
 }
 Resultado: Actualizado 3.0
 
-CASO 5
+CASO PRUEBA 4
+
 1. Eliminar todos números
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
 Método: DELETE
 Ejecutar: http://localhost:8080/calculator/clear
 Resultado: Se eliminaron todos los datos agregados
 
-CASO 6
+CASO PRUEBA 5
+
 1. Eliminar identificador suministrado
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
 Método: DELETE
