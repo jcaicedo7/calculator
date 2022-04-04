@@ -27,7 +27,8 @@ docker pull redis
 2. Desplegar redis:
 
 docker run -d --name redis -p 6379:6379 redis
-En caso de tener el puerto ocupado cambiarlo
+
+NOTA: En caso de tener el puerto ocupado cambiarlo
 
 3. Clonar el proyecto calculator :
 
@@ -62,40 +63,58 @@ A continuación se presentan 5 casos de pruebas utilizando los recursos.
 CASO PRUEBA 1:
 
 1. Obtener identificador
+
 Método: POST
+
 Ejecutar: http://localhost:8080/identify/create
+
 Cuerpo: no aplica
 
 Resultado: identificador, por ejemplo: 3e16f229-2456-4471-a9d6-be5754e1167b
 
 2. Agregar un número (operando)
+
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
+
 Método: POST
+
 Ejecutar: http://localhost:8080/calculator/add
+
 Cuerpo (formato json):
 {
     "value": 2
 }
+
 Resultado: Numeros agreados 2.0
 
 3. Agregar un segundo número (operando), porque se requiere mínimo 2 números para cualquier operación.
+
 Método: POST
+
 Ejecutar: http://localhost:8080/calculator/add
+
 Cuerpo (formato json):
 {
     "value": 3
 }
+
 Resultado: Numeros agreados 2.0, 3.0
 
 4. Realizar cálculo de suma.
+
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
+
 Método: POST
+
 Ejecutar: http://localhost:8080/calculator/calculate
+
 Cuerpo (formato json):
+
 {
     "operation": "Addition",
     "addResult" : false
 }
+
 Resultado: 
 {
     "values": "2.0,3.0",
@@ -121,37 +140,54 @@ Con los números agregados, están disponibles para cualquier operación.
 CASO PRUEBA 2
 
 1. Consultar números agregados.
+
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
+
 Método: GET
+
 Ejecutar: http://localhost:8080/calculator/query
+
 Resultado: 2.0,3.0
 
 CASO PRUEBA 3
 
 1. Eliminar un número
+
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
+
 Método: DELETE
+
 Ejecutar: http://localhost:8080/calculator/remove 
+
 Cuerpo (formato json):
 {
     "value":  2
 }
+
 Resultado: Actualizado 3.0
 
 CASO PRUEBA 4
 
 1. Eliminar todos números
+
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
+
 Método: DELETE
+
 Ejecutar: http://localhost:8080/calculator/clear
+
 Resultado: Se eliminaron todos los datos agregados
 
 CASO PRUEBA 5
 
 1. Eliminar identificador suministrado
+
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
+
 Método: DELETE
+
 Ejecutar: http://localhost:8080/identify/delete
+
 Resultado: Identificador eliminado
 
 
