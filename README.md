@@ -87,10 +87,15 @@ Resultado:
 }
 
 Otras operaciones a realizar son:
+
 Addition
+
 Sustraction
+
 Multiplication
+
 Division
+
 Exponential
 
 En el parámetro “operation” debe ingresar exactamente el mismo nombre.
