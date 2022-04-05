@@ -13,6 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +45,7 @@ public class CalculateController {
      * @param id es Identificador de registro 
      * @return retorna lista numeros agregados hasta el momento 
      */
-	@GetMapping(value = "/query", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/number", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> query(@RequestHeader("id") String id){
 		ResponseEntity<?> response = null;
 		try {
@@ -65,7 +66,7 @@ public class CalculateController {
 	 * @param operator el valor a agregar 
 	 * @return mensaje de confirmacion con los numeros agregados hasta el momento
 	 */
-	@PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)    
+	@PostMapping(value = "/number", produces = MediaType.APPLICATION_JSON_VALUE)    
     public ResponseEntity<?> add(@RequestHeader("id") String id,@Valid @RequestBody OperatorRequest operator) {    	
 		ResponseEntity<?> response = null;
 		try {
@@ -93,7 +94,7 @@ public class CalculateController {
 	 * 
 	 * @return numeros agregados hasta el momento, operacion y resultado del calculo
 	 */
-    @PostMapping("/calculate")
+    @PostMapping("/operation")
 	public ResponseEntity<?> calculate(@RequestHeader("id") String id,@Valid @RequestBody CalculateRequest request) {    	
 		ResponseEntity<?> response = null;
 		try {
@@ -113,7 +114,7 @@ public class CalculateController {
 	 * @param id Identificador de registro en la cabecera
      * @return restona mensaje de confirmacion
      */
-    @DeleteMapping("/clear")
+    @DeleteMapping("/number")
     public ResponseEntity<?> clear(@RequestHeader("id") String id){
     	ResponseEntity<?> response = null;
     	try {
@@ -134,7 +135,7 @@ public class CalculateController {
      * @param operator es el valor a eliminar
      * @return retorna numeros despues de eliminar
      */
-    @DeleteMapping("/remove")
+    @PutMapping("/number")
     public ResponseEntity<?> remove(@RequestHeader("id") String id,@Valid @RequestBody OperatorRequest operator) {    	
 		ResponseEntity<?> response = null;
 		try {

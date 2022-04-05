@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,7 +34,7 @@ public class IdentifyController {
      * Operacion para generar el identificador para el usuario y almacenarlo
      * @return retorna el identificador
      */
-    @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> create(){
 	    String id = serviceFacade.create();
 	    ResponseEntity<String> response = new ResponseEntity<String>(id, HttpStatus.OK);
@@ -46,8 +46,8 @@ public class IdentifyController {
      * @param id es Identificador de registro 
      * @return
      */
-    @DeleteMapping("/delete")
-    public ResponseEntity<?> delete(@RequestHeader("id") String id) {    	
+    @DeleteMapping
+    public ResponseEntity<?> delete(@RequestBody String id) {    	
 		ResponseEntity<?> response = null;
 		try {
 			String message = serviceFacade.delete(id);
