@@ -1,8 +1,8 @@
 # Proyecto calculator
-API REST para realizar operaciones matemáticas, donde se obtiene un identificador para cada usuario, 
-permite ir agregando los valores (operandos)  y finalmente realizar el cálculo matemático con los valores suministrados, 
-de operaciones como: suma, resta, multiplicación, división y potenciación. 
-Esta API REST desarrollada con Spring Boot y Redis como almacenamiento.
+En el documento se registra la información técnica acerca de la API REST útil para realizar operaciones matemáticas, 
+donde en la interacción parte de obtener un código para cada usuario, el cual le permite identificarlo para ir agregando los números 
+(operandos)  y finalmente realizar el cálculo matemático con los valores suministrados. 
+Las operaciones que permite realizar son: suma, resta, multiplicación, división y potenciación. 
 
 ## Requisitos
 Instalado y configurado las siguientes:
@@ -48,13 +48,13 @@ mvn spring-boot:run
 
 | Metodo            | Recurso           | Descripcion                                                                                 |
 |:------------------|:------------------|:----------------------------------------------------------------------------------------------|
-| `POST`			| `/identify/create`		| Obtener identificador													|
-| `POST`			| `/calculator/add`			| Agregar número (operando), ingresando valor				|
-| `POST`			| `/calculator/calculate`	| Realizar el cálculo, ingresando nombre de la operación a realizar y booleano 													|
-| `DELETE`			| `/calculator/clear`		| Eliminar todos los valores agregados	|
-| `DELETE`			| `/calculator/remove`		| Eliminar un valor agregado, suministrando el valor	|
-| `GET`				| `/calculator/query`		| Consulta los valores agregados al momento	|
-| `DELETE`			| `/identify/delete`		| Elimina el identificador	|
+| `POST`			| `/identify`				| Obtener identificador													|
+| `POST`			| `/calculator/number`		| Agregar número (operando), ingresando valor				|
+| `POST`			| `/calculator/operation`	| Realizar el cálculo, ingresando nombre de la operación a realizar y booleano 													|
+| `DELETE`			| `/calculator/number`		| Eliminar todos los valores agregados	|
+| `PUT`				| `/calculator/number`		| Actualizar valores agregados, suministrando el valor a eliminar	|
+| `GET`				| `/calculator/number`		| Consulta los valores agregados al momento	|
+| `DELETE`			| `/identify`				| Elimina el identificador	|
 
 ## Desarrollo de Pruebas Básicas
 
@@ -66,7 +66,7 @@ CASO PRUEBA 1:
 
 Método: POST
 
-Ejecutar: http://localhost:8080/identify/create
+Ejecutar: http://localhost:8080/identify
 
 Cuerpo: no aplica
 
@@ -78,7 +78,7 @@ Agregar cabecera: Llave de nombre id y en el valor colocar el identificador sumi
 
 Método: POST
 
-Ejecutar: http://localhost:8080/calculator/add
+Ejecutar: http://localhost:8080/calculator/number
 
 Cuerpo (formato json):
 {
@@ -91,7 +91,7 @@ Resultado: Numeros agreados 2.0
 
 Método: POST
 
-Ejecutar: http://localhost:8080/calculator/add
+Ejecutar: http://localhost:8080/calculator/number
 
 Cuerpo (formato json):
 {
@@ -106,7 +106,7 @@ Agregar cabecera: Llave de nombre id y en el valor colocar el identificador sumi
 
 Método: POST
 
-Ejecutar: http://localhost:8080/calculator/calculate
+Ejecutar: http://localhost:8080/calculator/operation
 
 Cuerpo (formato json):
 
@@ -145,7 +145,7 @@ Agregar cabecera: Llave de nombre id y en el valor colocar el identificador sumi
 
 Método: GET
 
-Ejecutar: http://localhost:8080/calculator/query
+Ejecutar: http://localhost:8080/calculator/number
 
 Resultado: 2.0,3.0
 
@@ -155,9 +155,9 @@ CASO PRUEBA 3
 
 Agregar cabecera: Llave de nombre id y en el valor colocar el identificador suministrado: 3e16f229-2456-4471-a9d6-be5754e1167b
 
-Método: DELETE
+Método: PUT
 
-Ejecutar: http://localhost:8080/calculator/remove 
+Ejecutar: http://localhost:8080/calculator/number
 
 Cuerpo (formato json):
 {
@@ -174,7 +174,7 @@ Agregar cabecera: Llave de nombre id y en el valor colocar el identificador sumi
 
 Método: DELETE
 
-Ejecutar: http://localhost:8080/calculator/clear
+Ejecutar: http://localhost:8080/calculator/number
 
 Resultado: Se eliminaron todos los datos agregados
 
@@ -186,7 +186,7 @@ Agregar cabecera: Llave de nombre id y en el valor colocar el identificador sumi
 
 Método: DELETE
 
-Ejecutar: http://localhost:8080/identify/delete
+Ejecutar: http://localhost:8080/identify
 
 Resultado: Identificador eliminado
 
