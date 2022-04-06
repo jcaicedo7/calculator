@@ -90,7 +90,7 @@ public class CalculateController {
 	 * 
 	 * isAddResult : es valor booleano para indicar 
 	 * true: eliminar los operandos actuales y se agregar el resultado para el siguiente calculo
-	 * false: eliminar los operandos actuales y agrega el resultado a calculo posterior 
+	 * false: no agrega el resultado y conserva los numero agregados
 	 * 
 	 * @return numeros agregados hasta el momento, operacion y resultado del calculo
 	 */
